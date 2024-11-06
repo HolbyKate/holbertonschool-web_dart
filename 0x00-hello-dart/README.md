@@ -1,4 +1,4 @@
-# holbertonschool-web_dart
+# Dart Programming Language
 
 Dart is a modern, object-oriented programming language developed by Google. It is primarily used for building web, mobile, and desktop applications. Dart is known for its simplicity, performance, and scalability.
 
