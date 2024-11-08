@@ -13,5 +13,5 @@ String showFunc(int a, int b) {
     int addition = add(a, b);
     int substraction = sub(a, b);
 
-    return ('Add $a + $b = $addition \nSub $a - $b = $substraction');
+    return ('Add $a + $b = $addition\nSub $a - $b = $substraction');
 }
