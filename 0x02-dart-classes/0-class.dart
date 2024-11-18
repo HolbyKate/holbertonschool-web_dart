@@ -1,4 +1,4 @@
-// Create a user class
+// Create an user class
 
 class User {
     // field
