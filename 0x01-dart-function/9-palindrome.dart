@@ -3,9 +3,7 @@
 bool isPalindrome(String s) {
     //Verify if teh string is less than 3 characters
     if (str.length < 3) {
-        return False;
+        return false;
     }
-    else {
         return str = str.split('').reversed.join('')
-    }
 }
