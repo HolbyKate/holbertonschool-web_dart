@@ -29,8 +29,9 @@ class Password {
     if (!hasNumbers) {
       return false;
     }
-      return true;
+    return true;
   }
+
   @override
   String toString() {
     return "Your Password is: $password";
