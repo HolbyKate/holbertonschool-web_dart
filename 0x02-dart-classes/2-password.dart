@@ -3,9 +3,12 @@
 class Password {
   String password = "";
 
+  // Constructor
+  Password();
+
   // Method to check if the password is valid
   bool isValid() {
-    if (password.length < 8 && password.length > 16) {
+    if (password.length < 8 || password.length > 16) {
       return false;
     }
 
