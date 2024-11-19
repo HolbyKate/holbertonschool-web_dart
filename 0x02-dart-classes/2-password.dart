@@ -8,8 +8,7 @@ class Password {
     if (password.length < 8 && password.length > 16) {
       return false;
     }
-    return true;
-  }
+
     // Check uppercase letters
     bool hasUpperCase = password.contains(RegExp(r'[A-Z]'));
     if (!hasUpperCase) {
@@ -31,7 +30,6 @@ class Password {
     String toString() {
       return "Your Password is: $password";
   }
+  return true;
 }
-
-
-
+}
