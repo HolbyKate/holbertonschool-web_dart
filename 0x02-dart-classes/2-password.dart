@@ -26,10 +26,10 @@ class Password {
     if (!hasNumbers) {
       return false;
     }
-    @override
-    String toString() {
-      return "Your Password is: $password";
+      return true;
   }
-  return true;
-}
+  @override
+  String toString() {
+    return "Your Password is: $password";
+  }
 }
