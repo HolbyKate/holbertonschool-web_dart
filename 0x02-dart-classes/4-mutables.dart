@@ -1,19 +1,21 @@
 // Create a class called Password and give it a string property called password
 
 class Password {
-  String password = "";
+  String _password = "";
 
   // Constructor
-  Password({required this.password});
+  Password({required this.password}) {}
+
+  // Default constructor
 
   // Get method
   String getPassword() {
-    return password;
+    return _password;
   }
 
   // Set method
   set password(String newPassword) {
-    password = newPassword;
+    _password = newPassword;
   }
 
   // Method to check if the password is valid
