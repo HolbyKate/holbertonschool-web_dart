@@ -1,12 +1,10 @@
-// Create a class called Password and give it a string property called password
+// Adding setter and getter
 
 class Password {
-  String _password = "";
+  String _password;
 
   // Constructor
-  Password({required this.password}) {}
-
-  // Default constructor
+  Password({required String password}) : _password = password;
 
   // Get method
   String getPassword() {
@@ -20,24 +18,24 @@ class Password {
 
   // Method to check if the password is valid
   bool isValid() {
-    if (password.length < 8 || password.length > 16) {
+    if (_password.length < 8 || _password.length > 16) {
       return false;
     }
 
     // Check uppercase letters
-    bool hasUpperCase = password.contains(RegExp(r'[A-Z]'));
+    bool hasUpperCase = _password.contains(RegExp(r'[A-Z]'));
     if (!hasUpperCase) {
       return false;
     }
 
     // Check lowercase letters
-    bool hasLowerCase = password.contains(RegExp(r'[a-z]'));
+    bool hasLowerCase = _password.contains(RegExp(r'[a-z]'));
     if (!hasLowerCase) {
       return false;
     }
 
     // Check numbers
-    bool hasNumbers = password.contains(RegExp(r'[0-9]'));
+    bool hasNumbers = _password.contains(RegExp(r'[0-9]'));
     if (!hasNumbers) {
       return false;
     }
@@ -46,6 +44,7 @@ class Password {
 
   @override
   String toString() {
-    return "Your Password is: $password";
+    return "Your Password is: $_password";
   }
 }
+
