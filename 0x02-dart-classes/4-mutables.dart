@@ -47,4 +47,3 @@ class Password {
     return "Your Password is: $_password";
   }
 }
-
