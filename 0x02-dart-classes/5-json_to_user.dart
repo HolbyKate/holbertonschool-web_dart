@@ -1,10 +1,10 @@
 // Create an user class with toJson method and add id property
 
 class User {
+  final int id;
   final String name;
   final int age;
   final double height;
-  final int id;
 
   User({required this.id, required this.name, required this.age, required this.height});
 
