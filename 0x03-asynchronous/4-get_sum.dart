@@ -1,7 +1,9 @@
 // Create function that calculates the total price of items for a certain user.
-import '4-util.dart';
 
-Future calculateTotal() async {
+import '4-util.dart';
+import 'dart:convert';
+
+Future<double> calculateTotal() async {
   try {
     // Get the user data
     final userData = await fetchUserData();
@@ -16,12 +18,13 @@ Future calculateTotal() async {
     double total = 0;
     for (String product in orders) {
       final priceData = await fetchProductPrice(product);
-      final double price = json.decode(priceData);
-      total += price;
+    // start calculate the price in number and then in double
+      final num priceNum = json.decode(priceData);
+      total += priceNum.toDouble();
     }
 
     return total;
-  } catch (e) {
+  } catch (err) {
     return -1;
   }
 }
