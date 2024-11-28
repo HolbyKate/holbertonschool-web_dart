@@ -21,5 +21,7 @@ Future calculateTotal() async {
     }
 
     return total;
+  } catch (e) {
+    return -1;
   }
 }
