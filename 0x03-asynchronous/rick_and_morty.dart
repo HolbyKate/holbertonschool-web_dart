@@ -3,34 +3,39 @@ import 'package:http/http.dart' as http;
 
 Future<void> printRmCharacters() async {
   try {
-    // Base URL for the rick_and_morty API
-    final baseUrl = 'https://rickandmortyapi.com/api/character';
-    List<String> allCharacters = [];
-    String? nextPage = baseUrl;
+    bool foundRick = false;
+    bool foundAnnie = false;
 
-    // Fetch all pages of characters
-    while (nextPage != null) {
-      final response = await http.get(Uri.parse(nextPage));
+    String url = 'https://rickandmortyapi.com/api/character';
+
+    while (url != '' && !foundAnnie) {
+      final response = await http.get(Uri.parse(url));
 
       if (response.statusCode != 200) {
-        throw Exception('Failed to fetch characters');
+        throw Exception('Failed to load characters');
       }
 
-      final data = json.decode(response.body);
-      final characters = data['results'] as List;
+      final data = jsonDecode(response.body);
+      final List characters = data['results'];
 
-      // Extract character names from current page
       for (var character in characters) {
-        allCharacters.add(character['name'] as String);
+        String name = character['name'];
+
+        if (name == "Rick Sanchez") {
+          foundRick = true;
+        }
+
+        if (foundRick) {
+          print(name);
+        }
+
+        if (name == "Annie") {
+          foundAnnie = true;
+          break;
+        }
       }
 
-      // Check if there's a next page
-      nextPage = data['info']['next'] as String?;
-    }
-
-    // Print all character names
-    for (var name in allCharacters) {
-      print(name);
+      url = data['info']['next'] ?? '';
     }
   } catch (e) {
     print('error caught: $e');
