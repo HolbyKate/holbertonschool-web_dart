@@ -12,18 +12,19 @@ Future<double> calculateTotal() async {
 
     // Get the user order
     final ordersData = await fetchUserOrders(userId);
+    if (ordersData.contains('error')) return -1;
     final List<dynamic> orders = json.decode(ordersData);
 
     // Calculate total price
     double total = 0;
-    for (String product in orders) {
+    for (var product in orders) {
       final priceData = await fetchProductPrice(product);
-    // start calculate the price in number and then in double
-      final num priceNum = json.decode(priceData);
-      total += priceNum.toDouble();
+      // start calculate the price in number and then in double
+      if (priceData.contains('error')) return -1;
+      total += json.decode(priceData);
     }
 
-    return double.parse(total.toStringAsFixed(1));
+    return total;
   } catch (err) {
     return -1;
   }
